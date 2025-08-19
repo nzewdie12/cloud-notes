@@ -31,5 +31,26 @@
 
 # 2.2
 
+## Three catagores of network components
+- End devices (aka. Host devices) : laptops, printers, phone, camera...
+  - An end device (or host) is either the source or destination of a message transmitted over the network, as shown in the animation. In order to uniquely identify hosts, addresses are used.
+- intermediary devices : switchs, routers,
+- network media:
+  - Lan (local area network media) : ethernet cable
+  - wan (wide area network media):fiber optic cables
+  - Wireless Media : radio frequency , infrared waves
+
+ ---
+ # 2.3
+
+## ISP's
+- An Internet Service Provider (ISP) provides the link between the home network and the internet.
+- additional services : These services can include email accounts, network storage, and website hosting and automated backup or security services.
+- never use a moddem to directly connecta end device to an ISP. Instead, have wireless integrated router to connect to the ISP.  The router also provides client IP addressing information and security for inside hosts.
+- Can be run over DSL(over phone lines) or Cable(over cable tv lines)
+  - DSL requires a high speed moden to seperate the 3 connections: phone, downlowad, and upload
+  - Cable require a modem to seperate the internet from the others.
+- Cellular, satalite , and dial up telephone are also other options.
+  
 
   
