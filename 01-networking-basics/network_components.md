@@ -28,8 +28,7 @@
 ## a single computer can run muliple types of server software can can connect to muliple hosts. Also a client computer can have muliple client softwares.
 
 ---
-***
----
+
 # 2.2
 
 
