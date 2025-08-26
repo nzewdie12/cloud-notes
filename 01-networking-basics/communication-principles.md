@@ -32,5 +32,6 @@ and destination host. it also might include other inomration to delever to the c
 1. Physical : This layer protocols describe the mechanical electrical ... means to activeate, maintain and de-activeate physical connections for a bit transmission to and from a netwokr device.   
 
 
+-----
 - The TCP/IP application layer includes several protocols that provide specific functionality to a variety of end user applications. The OSI model Layers 5, 6, and 7 are used as references for application software developers and vendors to produce applications that operate on networks.
 - Both the TCP/IP and OSI models are commonly used when referring to protocols at various layers. Because the OSI model separates the data link layer from the physical layer, it is commonly used when referring to these lower layers.
