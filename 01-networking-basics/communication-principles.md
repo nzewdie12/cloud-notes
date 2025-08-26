@@ -1,5 +1,5 @@
 # 5.0
--Media Access Control : Mac Address
+- Media Access Control : Mac Address
 
 ### Protocol Charicteristic 
 ####: Protocols are the rules that govern network communications including the message format, message size, timing and encapsulation.
@@ -17,7 +17,7 @@ and destination host. it also might include other inomration to delever to the c
   - HTTP, DNS , FTP
 - Transport : Supports Communiaton between various devices across diverse networks
   - TCP, UDP
-- Internet : Determines the best path through the network.
+- Internet : Determines the best path through the network. Internet Protocol (IP) is used by routers to forward messages.
   - IPV4, IPV6
 - Network Access : Controls the hardware devices and meda that make up the network.
   - Ethernet, WI-FI
@@ -30,3 +30,7 @@ and destination host. it also might include other inomration to delever to the c
 3. Network : This layer provied services to exhange the individual pieces of data over the network betweeen identified end devices.
 2. Data Link : This layer protocols describe methods for exchanging data frames between devices over a common media.
 1. Physical : This layer protocols describe the mechanical electrical ... means to activeate, maintain and de-activeate physical connections for a bit transmission to and from a netwokr device.   
+
+
+- The TCP/IP application layer includes several protocols that provide specific functionality to a variety of end user applications. The OSI model Layers 5, 6, and 7 are used as references for application software developers and vendors to produce applications that operate on networks.
+- Both the TCP/IP and OSI models are commonly used when referring to protocols at various layers. Because the OSI model separates the data link layer from the physical layer, it is commonly used when referring to these lower layers.
