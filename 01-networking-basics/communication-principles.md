@@ -15,7 +15,7 @@ and destination host. it also might include other inomration to delever to the c
 ### TCP/IP Model Layers (Protocol Model)
 - Application : Represents Data to the user, plus encoding and dialog control.
   - HTTP, DNS , FTP
-- Transport : Supports Communiaton between various devices across diverse networks
+- Transport : Supports **Communiaton** between various devices across diverse networks
   - TCP, UDP
 - Internet : Determines the best path through the network. Internet Protocol (IP) is used by routers to forward messages.
   - IPV4, IPV6
