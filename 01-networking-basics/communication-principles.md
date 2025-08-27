@@ -23,13 +23,13 @@ and destination host. it also might include other inomration to delever to the c
   - Ethernet, WI-FI
 
 ### OSI Model Layer (Reference Model)
-7. Applicaton : The application layer contains protocols used for process-topreocess ommunications
-6. Presentation : The presentatoin layer provieds for common representation of the data transferred between application layer services.
-5. Session : The session layer provied services to presentaion layer to organize its dialogue and to manage data exchange
-4. Transport: The transport layer defines services to segment, transfer, and reassembel the data for individual communications beween the end devices.
-3. Network : This layer provied services to exhange the individual pieces of data over the network betweeen identified end devices.
-2. Data Link : This layer protocols describe methods for exchanging data frames between devices over a common media.
-1. Physical : This layer protocols describe the mechanical electrical ... means to activeate, maintain and de-activeate physical connections for a bit transmission to and from a netwokr device.   
+7 . Applicaton : The application layer contains protocols used for process-topreocess ommunications
+6 . Presentation : The presentatoin layer provieds for common representation of the data transferred between application layer services.
+5 . Session : The session layer provied services to presentaion layer to organize its dialogue and to manage data exchange
+4 . Transport: The transport layer defines services to segment, transfer, and reassembel the data for individual communications beween the end devices.
+3 . Network : This layer provied services to exhange the individual pieces of data over the network betweeen identified end devices.
+2 . Data Link : This layer protocols describe methods for exchanging data frames between devices over a common media.
+1 . Physical : This layer protocols describe the mechanical electrical ... means to activeate, maintain and de-activeate physical connections for a bit transmission to and from a netwokr device.   
 
 
 -----
