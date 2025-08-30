@@ -14,6 +14,7 @@ for remote communicaiton.
 of the IPv4 can communicate (without the use of routing)
 ### Subnet (ie. SUB Network)
 - Subnet mask is used to identify the network on which the host is connected.
+- ***Also can be represented as /## (ie. /24, /8 ) which means the amount of bites in the network portion. AKA CIDR***
 - **subnet mask is used to tell how to break up network and host**
- - 192.168.5.11 with a subnet of 255.255.255.0 = Network portion : 192.168.5.0 || Thus devises on same netwokrk can be 192.168.5.1 192.168.5.99 
- - 192.168.5.11 with a subnet of 255.255.0.0 = Network portion : 192.168.0.0|| Thus devises on same netwokrk can be 192.168.5.1 192.168.7.99 
+ - 192.168.5.11 with a subnet of 255.255.255.0 =/24 = Network portion : 192.168.5.0 || Thus devises on same netwokrk can be 192.168.5.1 192.168.5.99 
+ - 192.168.5.11 with a subnet of 255.255.0.0 =/16= Network portion : 192.168.0.0|| Thus devises on same netwokrk can be 192.168.5.1 192.168.7.99 
