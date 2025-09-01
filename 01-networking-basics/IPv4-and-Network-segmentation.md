@@ -21,18 +21,18 @@
 - 10.0.0.0/8
 - 172.16.0.0/12: 172.16.0.0 - 172.31.255.255
 - 192.168.0.0/16
-## Routing to the internet 9.2.2
+### Routing to the internet 9.2.2
 - Most internal networks, from large enterprises to home networks, use private IPv4 addresses for internal devices (hosts and routers).
 - ***Pirvate addresses are not gloabally routable***
 - NAT(network address Translation) : is used to translate IPv4 private to a public adress. This is usually done on the router that connects to the ISP network.
 
-## Special Use IPv4 Addresses (9.2.4)
+### Special Use IPv4 Addresses (9.2.4)
 - there are certian addresses, such as the netwokr address and broadcast address, that cannot be assigned to hosts.
 - Loopback addresses: (127.0.0.0/8 [more commonly 127.0.0.1]) is used by a host to direct traffic to itself. It can be used to ping your own device.
 - Link-local addresses (169.254.0.0/16) : are more commonly known as the Automatic private IP addressing (APIPA or Auto-IP) addresses. There are used by windows client to self-configre in the event that the client cannot obtain an IP addressing thorough methods. Can be used for peer-to-peer connection
 
 ***xxx.xxx.xxx.0 = network address , xxx.xxx.xxx.255 = broadcast address***
-## Legacy Classful Addressing
+### Legacy Classful Addressing
 - Class A (0.0.0.0/8 to 127.0.0.0/8) Designed to support extremely large networks with more that 16 millini host addresses
   - during 1981 : class A acounted for 50% of the IPv4 netwokrs 
 - Class B (128.0.0.0/16 to 191.255.0.0/16) Designed to support the needs of moderate to large size networks with up to aproximately 65,000 host addresses
@@ -41,7 +41,7 @@
 - Class E experamental block 240 - 255
 - Classless addressing was introduced in mid 1990's to more efficently allocate the limited IPv4 address spaces
 
-## Assignment of IP Addresses
+### Assignment of IP Addresses
 - IANA(Internet assigned numbers authority) manages and allocates IP addresses to the RIR (Reginal Internet Registries). RIR are responsible for allocating IP address to ISPs who provide IPv4 address blocks to organizatoins and smaller ISPs. Organizations can also get their addresses directly from an RIR
 ### RIRs
 - AfriNIC : Africa
@@ -49,3 +49,18 @@
 - ARIN : North America (not mexico)
 - LACNIC : Latin America and some Carribean islands
 - RIPE : Europe, The Middle East, and Central Asia.
+
+--- 
+## Network Segmentation
+- A layer 2 broadcast domain is every host and switch within a LAN and broadcast domains are seperated/diveded by routers. Each router interface connects to a broadcast domain.
+- ARP (Address Resolution Protocol) sends layer 2 broadcasts to known IPv4 address on the local network to discover the associated MAC address.
+- A host typically acquires its IPv4 address configuratoin using the DHCP (Dynamic HOst Configureation Protocol). The host with no IP address will broadcast a DHCP discover/request message on the network to locate a DHCP server
+- Large Broadcast domains can have problems because the more host there are the more broadcasts they generate wich can negativly affect the networks
+  - The solution is to break up larger broadcasts into subnets. 1:  (172.16.0.0 /16) can become 2 : (172.16.0.0 /24 and 172.16.1.0/24)
+  - This results in reduces network traffic, better preformace, enables an administrator to implment security polices, and makes hardware and other issues more local.
+
+
+
+
+
+
