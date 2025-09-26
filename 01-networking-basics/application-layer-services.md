@@ -41,7 +41,39 @@
 - TCP : Port 21 is used to send commands and manage the FTP session, while port 20 is used to transfer the actual file data. In passive mode, a different, dynamically assigned port number is used for data transfer.
 
 ## Virtual Terminal (16.6)
+- Telnet : Provides a standard method of emulating text-based terminal devices over the data network. Telnet uses software to create a virtual device that provieds the same features of a terminal session with access to the server's CLI (command line interace)
+  - Applicaton layer protocol and serviese in the TCP/IP suite.
+  - Telnet servers listen for client requests on ***TCP port 23***.
+  - A connection using Telnet is called a virtual terminal.
+  - *** NOT Secuire***
+    - all date exchaged during Telnet sessions is transported as plaintext across the network , not encryptped.
+- SSH ( Secure Shell) protocol is the secure alternateive to Telnet.
+
+## Email Clients and Servers (16.7)
+### Email Protocols
+- SMTP (Simple Mail Transfer Protocol) : Is used by an Email client to send messages to its local email server.
+  - if addressed to mailbox on diffrent server, than SMTP is used by the servers
+  - ***SMTP requests are sent to port 25***
+    
+
+- POP3 ( Post Office Protocol): Similar to a post office, POP servers recives and stores messages addressed to its users. Basiclay email storage unitl user accesses it. Once accessed, they are no longer kept on the server.
+  - ***POP3 servers on port 110*** 
+
+  
+- IMAP4 (Internet message access protocol): Server recives and stores messages addressed to its users and keeps them, unless delted by user.
+  - Similar to POP, but keeps the messages after user access them.
+  - ***IMAP4 requests on port 143***
+
+### Internet Phone Calls 
 - 
+
+
+
+
+
+
+
+
 
 
 
