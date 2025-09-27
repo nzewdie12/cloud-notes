@@ -37,6 +37,7 @@
 
 ## File Transfer Protocol (FTP) (16.5)
 - The FTP proviedes an easy method to transfer files from one computer to another.
+- The first connection establisd is for traffic control and the second connection is created to transfer a file
 - FTP service uses two diffrent ports to commmunicate between client and server.
 - TCP : Port 21 is used to send commands and manage the FTP session, while port 20 is used to transfer the actual file data. In passive mode, a different, dynamically assigned port number is used for data transfer.
 
@@ -65,7 +66,10 @@
   - ***IMAP4 requests on port 143***
 
 ### Internet Phone Calls 
-- 
+- IP telephony makes use of VoIP (Voice over IP technology). Which converts analog voice signals into digital data
+- The voice data is encapsulated into IP packets which carry the phone call thorugh the network
+- When software is installed users mush have a unique name, speaker and a mic.
+- Calls to other users onteh same service on the internet is simple, but call to regular telephones requere using a gateway to access the PSTN (public switched Telephone Network)
 
 
 
