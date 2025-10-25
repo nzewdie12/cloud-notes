@@ -1,195 +1,137 @@
-Shell Commands Cheatsheet for Linux
-Notes
+# Linux Commands Notes
 
-Linux uses a hierarchical file system.
+## General Notes
+- Linux uses a hierarchical file system.
+- `~` represents the home directory.
+- `echo ~` prints the path to the home directory.
 
-~ represents the home directory (e.g., echo ~ → prints the path to the home directory).
+---
 
-User and System Information
+## User and System Information
+- `whoami` → Displays the username of the current user.  
+- `id` → Displays info about the user (UID, GID, groups).  
+  - UID = Unique user ID  
+  - GID = Main group ID  
+  - Groups = All groups you belong to  
+- `root` → Superuser account.  
+- `sudo` → Run commands with admin privileges.  
+- `history` → Shows previously entered commands.  
+- **Shortcut:** `Ctrl + R` → Search previous commands.
 
-whoami: Displays the username of the current user.
+---
 
-id: Displays info about the user (UID, GID, groups, etc.).
+## Package Management
+- `apt` → Package manager.  
+  - `sudo apt install [package]` → Install software.  
+  - `sudo apt update` → Update package list.  
+- `install` and `update` are used to manage packages.
 
-UID: Unique user ID
+---
 
-GID: Main group ID
+## File and Directory Navigation
+- `pwd` → Prints working directory.  
+- `cd [directory]` → Change directory.  
+  - `cd ~` → Home directory.  
+  - `cd ..` → Parent directory.  
+- `ls` → Lists directory contents.  
+  - `ls -l` → Long format (shows permissions, owner, group).  
+  - `ls -a` → Includes hidden files.  
+  - `ls -la` → Long format with hidden files.  
+  - `ls -lR` → Recursive list of all subdirectories.  
+  - `ls -ld` → Show directory info itself.  
 
-Groups: All groups you belong to
-
-root: The superuser account.
-
-sudo: “Superuser Do” — runs commands with admin privileges temporarily.
-
-history: Shows all previously entered commands.
-
-Ctrl + R: Search through previous commands (similar to “Find”).
-
-Package Management
-
-apt: Package manager for installing or updating software.
-
-sudo apt install [package]: Install software.
-
-sudo apt update: Update available packages.
-
-install and update: Install or update software.
-
-File and Directory Navigation
-
-pwd: Prints the working directory (current location).
-
-cd [directory]: Change directory.
-
-cd ~: Go to the home directory.
-
-cd ..: Go to the parent directory.
-
-ls: Lists directory contents.
-
-ls -l: Lists contents with additional info (permissions, owner, group, etc.).
-
-ls -a: Shows all files including hidden files.
-
-ls -la: Combines both -l and -a.
-
-ls -lR: Shows all subdirectories and files recursively.
-
-ls -ld: Shows the directory itself.
-
-Example output:
-
+**Example output:**
 -rw-rw-r-- 1 user user 0 Jul 29 15:11 example.txt
 
-
--: File, d: Directory
-
-First section shows permissions, followed by owner and group information.
-
-/: Indicates an absolute path (full location).
-
-File and Directory Creation
-
-touch [filename]: Creates an empty file.
-
-mkdir [directory]: Creates a new directory.
-
-mkdir -p newdir/subdir: Creates a new directory and a subdirectory in it.
-
-. (dot): Any file or directory that starts with . is hidden.
-
-file [filename]: Displays the file type.
-
-File Content and Output
-
-echo: Prints text or redirects output.
-
-echo "Hello world" → Displays text.
-
-echo "Hello" > test.txt → Writes “Hello” into a file.
-
->: Redirects output to a file (creates it if it doesn’t exist).
-
-cat [filename]: Displays the contents of a file.
-
-cat -n: Displays with line numbers.
-
-less [filename]: Views large files one page at a time.
-
-head [filename]: Displays the first 10 lines.
-
-tail [filename]: Displays the last 10 lines.
-
-head -n [x] or tail -n [x]: Displays x number of lines.
-
-head -c [x] or tail -c [x]: Displays x number of characters.
-
-File Operations
-
-cp [src] [dest]: Copies files or directories.
-
-cp file1 file2: Copies the contents of one file to another.
-
-cp file dir/: Copies a file into a directory.
-
-cp -r dir dir_copy: Copies a directory and its contents (recursive).
-
-Wildcards:
-
-*: Represents all files.
-
-?: Represents one character.
-
-[abc]: Represents any character within brackets.
-
-mv [src] [dest]: Moves or renames files/directories.
-
-mv oldname.txt newname.txt: Renames a file.
-
-mv file dir/: Moves a file into a directory.
-
-rm [file]: Removes files.
-
-rm -f: Force removes files (even if write-protected).
-
-rm -i: Asks for confirmation before removing.
-
-rm -r [dir]: Removes directory and its contents.
-
-rmdir [dir]: Removes empty directories.
-
-Searching and Comparing
-
-find [path] -name [filename]: Finds a file by name.
-
-find [path] -type [filetype] -name [filename]: Finds by type (file or directory).
-
-diff [file1] [file2]: Shows differences between two files.
-
-Example: 1c1 means the first line in file1 differs from the first line in file2.
-
-diff -r dir1 dir2: Compares directories recursively and shows differences.
-
-Permissions and Ownership
-
-chmod [xyz] [file]: Changes permissions.
-
-First digit = owner, second = group, third = others.
-
-Numbers:
-
-4 = Read
-
-2 = Write
-
-1 = Execute
-
-0 = No permission
-
-Example: chmod 700 file → Owner (rwx), Group (none), Others (none).
-
-chown [owner]:[group] [file]: Changes ownership.
-
-Example: sudo chown root:root example.txt.
-
-Aliases and Shortcuts
-
-alias name='command': Creates a shortcut for a command.
-
-Example: alias test_file='echo "Hello, World" > test.txt'.
-
-unalias [name]: Removes an alias.
-
-Help and Documentation
-
-man [command]: Displays manual pages.
-
-help [command]: Shows built-in shell help.
-
-whatis [command]: Gives a brief description of a command.
-
-Miscellaneous
-
-clear: Clears the terminal screen.
-
-.sh files: Shell script files (e.g., script.sh).
+- `-` = file, `d` = directory  
+- First section = permissions  
+- Next = owner, group, etc.  
+- `/` = absolute path.
+
+---
+
+## File and Directory Creation
+- `touch [filename]` → Create an empty file.  
+- `mkdir [directory]` → Create a new directory.  
+  - `mkdir -p newdir/subdir` → Create nested directories.  
+- Files starting with `.` are hidden.  
+- `file [filename]` → Shows file type.
+
+---
+
+## File Content and Output
+- `echo` → Prints or redirects text.  
+  - `echo "Hello"` → Prints text.  
+  - `echo "Hello" > test.txt` → Writes “Hello” to a file.  
+  - `>` redirects output to a file.  
+- `cat [file]` → Displays file contents.  
+  - `cat -n` → With line numbers.  
+- `less [file]` → View large files page by page.  
+- `head [file]` → First 10 lines.  
+- `tail [file]` → Last 10 lines.  
+  - `head -n [x]` or `tail -n [x]` → Show x lines.  
+  - `head -c [x]` or `tail -c [x]` → Show x characters.
+
+---
+
+## File Operations
+- `cp [src] [dest]` → Copy files or directories.  
+  - `cp file1 file2` → Copy contents.  
+  - `cp file dir/` → Copy file into directory.  
+  - `cp -r dir dir_copy` → Copy directory recursively.  
+- **Wildcards:**  
+  - `*` = all files  
+  - `?` = single character  
+  - `[abc]` = match one of a, b, or c  
+- `mv [src] [dest]` → Move or rename.  
+  - `mv old.txt new.txt` → Rename.  
+  - `mv file dir/` → Move file.  
+- `rm [file]` → Remove file.  
+  - `rm -f` → Force delete.  
+  - `rm -i` → Ask before deleting.  
+  - `rm -r [dir]` → Delete directory recursively.  
+  - `rmdir [dir]` → Delete empty directory.
+
+---
+
+## Searching and Comparing
+- `find [path] -name [filename]` → Find file by name.  
+  - `find [path] -type [f/d] -name [filename]` → By type (file/dir).  
+- `diff [file1] [file2]` → Compare two files.  
+  - Example: `1c1` → line 1 in file1 differs from line 1 in file2.  
+  - `diff -r dir1 dir2` → Compare directories recursively.
+
+---
+
+## Permissions and Ownership
+- `chmod [xyz] [file]` → Change permissions.  
+  - 4 = read  
+  - 2 = write  
+  - 1 = execute  
+  - 0 = no permission  
+  - `chmod 700 file` → Owner full (rwx), group & others none.  
+- `chown [owner]:[group] [file]` → Change file ownership.  
+  - Example: `sudo chown root:root example.txt`
+
+---
+
+## Aliases and Shortcuts
+- `alias name='command'` → Create a command shortcut.  
+  - Example:  
+    ```
+    alias test_file='echo "Hello" > test.txt'
+    ```
+- `unalias [name]` → Remove alias.
+
+---
+
+## Help and Documentation
+- `man [command]` → Manual pages.  
+- `help [command]` → Shell help.  
+- `whatis [command]` → Short command description.
+
+---
+
+## Miscellaneous
+- `clear` → Clears the terminal.  
+- `.sh` files → Shell scripts (e.g., `run.sh`).
