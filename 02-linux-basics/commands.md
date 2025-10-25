@@ -1,107 +1,195 @@
-# Shell Commands Cheatsheet for Linux
+Shell Commands Cheatsheet for Linux
+Notes
 
-## NOtes:
-- linux uses hieracahal file system
+Linux uses a hierarchical file system.
 
+~ represents the home directory (e.g., echo ~ → prints the path to the home directory).
 
-## Commands
+User and System Information
 
-- echo: Repeats whatever you write // EX. echo "Hello world" --> Hello world
-  - echo is also used as print. aka (standard output) // echo "Hello world" > testfile.txt ( will print hello world in testfile.txt)
-  - >: redirects the output of echo into the file. If the file does not exist, it will create the file and redirect the echo into it.
-  -
+whoami: Displays the username of the current user.
 
+id: Displays info about the user (UID, GID, groups, etc.).
 
-- whoami: Displays the username of the current user
-- id: displays info about user ( such as user group and uid) --> output will have UID (unique user id ), GID(main group user is apart of ) and groups ( all groups you are a member of)
-- root: is the superuser
+UID: Unique user ID
 
-  
-- sudo: stands for Superuser Do and allows for you to execute commands with admin privilage (temperarily)
-- apt: package manager for installing software
-- install and update: as the name says install "xxx" or update does just that
-  -  combined use: $ sudo apt update
+GID: Main group ID
 
-- Chown: is used to change ownership// ex. sudo shown root/root example.txt 
+Groups: All groups you belong to
 
-- pwd: print working directory. Current location in the file system
-- " ~" : is the home directory // ex . echo ~ --> the path to the home directory
-  
-- ls: list home directory
-  - ***Combo would be {  ls ~  --> lists the contents of home directory***
-  -  ls -l: lists contents with additioinal info ( including its permissions, owner, and group.)
-    -  ls -l "directory name" : can list contents in the directory
-      - //Results =
-       - "-" in the first char meand file while "d" in the first means directory
-       - after the dashes( basicaly just current permisions) the first "name" is current owner and second "name" is the current group of the file. 
-         - ///ex. -rw-rw-r-- 1 labex labex 0 Jul 29 15:11 example.txt //// 0 fiile size in bytes, date last modified, and file neame
-  -  ls -a: shows all files including hidden files
-  -  ls -la: combines both
-  -  ls -lR: shows all sub dir and files in a dir
-  -  ls -ld: shows directory
+root: The superuser account.
 
--  "-R" : makes wide spread changes to all files and sub dir
-  
- 
--  ".." means directory above // ex cd .. ---> go to the parent directory
--  cd: means change directory,  basically like saying go to// ex. cd ~ --> go to home directory
--  "/": absolute path. starting with "/" means giving a full location // ex. /home/examplefile/photos
-  
--  touch: creates an empty file //ex. touch testfile.txt
--  ".": any file or directory that starts with "." is a hidden// ex. echo "Hidden file" > .hiddenfile ( .hiddenfile is a hidden file)
-- file:  tells what type of file it is //ex file pic.jpeg --> txt file ( doesnt have to match name in linux)
--  mkdir: creates a directory
-  - -p (newdir/subdir): creates a new dirctory and a subdiretocty in it
+sudo: “Superuser Do” — runs commands with admin privileges temporarily.
 
-  
--  cp "filename" "filename_copy": cp copys the contents of filename and saves it in the new file copy "filename_copy"
-  - cp "file" "directry"/: copies file into directory
-  - cp -r "directory" "directory copy": copies directory ( r means recursive and neccdasry for copying dirfectory contents accuratly)
-  - ## It is possible to copy and move at the same time. Make sure to include the /destination/"copied file name"
-  - Wildcards
-    - cp * : the wildcard of wildcards, it's used to represent all single characters or any string.
-    - ? used to represent one character
-    -[] used to represent any character within the brackets 
+history: Shows all previously entered commands.
 
-- mv "filename" "newfilename": changes the name of file. also works with directories ( mv "dirname" "newdirname")
-  - mv "file" "directory"/: moves file into directory
-  - //test comand// mv testdir/newname.txt ./original_file1.txt : changes newname.txt name to original_file1.txt and ./ moves it into the current directory
+Ctrl + R: Search through previous commands (similar to “Find”).
 
-- rm: removes files
-  - rm -f: force removes files even if they are wirte protected
-  - rm -i: remove files with a flag. It asks to confirm you want to remove the file
-  - rm -r "directory": removes contents in the directory and the directory itself
-  - rmdir "dir": removes empty directories
- 
-- cat: displays contents of a file/ read files
-  - cat -n: display with line numbers
-- less: To view large files 
+Package Management
 
-- head: displays the first 10 lines
-- Tail: displays the last 10 lines
-  - head(or tail) -n(x)  where x is the number of lines]: displays x number of lines
-  - head(or tail) -c(x) where x is htenymebr of characters: displays x number of charactiers
+apt: Package manager for installing or updating software.
 
-- diff "file1" "file2" : will show the diffrences in the files. it will tell the line ini which the change is in // ex. 1c1 = first line in first file is different than the first line in second file ***Depending on which file is first, changes the result***
-  - diff -r (dir) (dir2): works with directories and shows files that are missing in one that is present in the other
+sudo apt install [package]: Install software.
+
+sudo apt update: Update available packages.
+
+install and update: Install or update software.
+
+File and Directory Navigation
+
+pwd: Prints the working directory (current location).
+
+cd [directory]: Change directory.
+
+cd ~: Go to the home directory.
+
+cd ..: Go to the parent directory.
+
+ls: Lists directory contents.
+
+ls -l: Lists contents with additional info (permissions, owner, group, etc.).
+
+ls -a: Shows all files including hidden files.
+
+ls -la: Combines both -l and -a.
+
+ls -lR: Shows all subdirectories and files recursively.
+
+ls -ld: Shows the directory itself.
+
+Example output:
+
+-rw-rw-r-- 1 user user 0 Jul 29 15:11 example.txt
 
 
-- chmod (xxx) : Change permission for 1st x = owner permission, 2nd x= group's permission, 3rd x = others' permissions.
-  - numbers from 0 to 7 calculated as follows
-    - 4 read permission, 2 Write permission, 1 execute permission, 0 no permssion
-    - ex. 700 is Owner(Read, write, Execute [ 4+2+1), group(none 0), others(none 0)
-   
-- history : shows all the commands you have inputed before
-  - ctrl + R : basiclay works as a search of the preivous comand (ie simmilar to cmnd F in google)
+-: File, d: Directory
 
-- find : to find a file
-  - find /(Directory) - name (filename): to find a file in a directory or its subdirectory
-  - find /(dir) -type (filetype) - name (filename): to find file based on file type
+First section shows permissions, followed by owner and group information.
 
-- alias='(Command)': creats a sort of variable for a command. // ie.  alias test_file='echo "Hello, World \n Hello z\n z is me" > test.txt'
-  - unalias: to undo. 
+/: Indicates an absolute path (full location).
 
+File and Directory Creation
 
-- man, help, whatis: bwill give you more info on how to use a command
+touch [filename]: Creates an empty file.
 
-- clear : clears terminal
+mkdir [directory]: Creates a new directory.
+
+mkdir -p newdir/subdir: Creates a new directory and a subdirectory in it.
+
+. (dot): Any file or directory that starts with . is hidden.
+
+file [filename]: Displays the file type.
+
+File Content and Output
+
+echo: Prints text or redirects output.
+
+echo "Hello world" → Displays text.
+
+echo "Hello" > test.txt → Writes “Hello” into a file.
+
+>: Redirects output to a file (creates it if it doesn’t exist).
+
+cat [filename]: Displays the contents of a file.
+
+cat -n: Displays with line numbers.
+
+less [filename]: Views large files one page at a time.
+
+head [filename]: Displays the first 10 lines.
+
+tail [filename]: Displays the last 10 lines.
+
+head -n [x] or tail -n [x]: Displays x number of lines.
+
+head -c [x] or tail -c [x]: Displays x number of characters.
+
+File Operations
+
+cp [src] [dest]: Copies files or directories.
+
+cp file1 file2: Copies the contents of one file to another.
+
+cp file dir/: Copies a file into a directory.
+
+cp -r dir dir_copy: Copies a directory and its contents (recursive).
+
+Wildcards:
+
+*: Represents all files.
+
+?: Represents one character.
+
+[abc]: Represents any character within brackets.
+
+mv [src] [dest]: Moves or renames files/directories.
+
+mv oldname.txt newname.txt: Renames a file.
+
+mv file dir/: Moves a file into a directory.
+
+rm [file]: Removes files.
+
+rm -f: Force removes files (even if write-protected).
+
+rm -i: Asks for confirmation before removing.
+
+rm -r [dir]: Removes directory and its contents.
+
+rmdir [dir]: Removes empty directories.
+
+Searching and Comparing
+
+find [path] -name [filename]: Finds a file by name.
+
+find [path] -type [filetype] -name [filename]: Finds by type (file or directory).
+
+diff [file1] [file2]: Shows differences between two files.
+
+Example: 1c1 means the first line in file1 differs from the first line in file2.
+
+diff -r dir1 dir2: Compares directories recursively and shows differences.
+
+Permissions and Ownership
+
+chmod [xyz] [file]: Changes permissions.
+
+First digit = owner, second = group, third = others.
+
+Numbers:
+
+4 = Read
+
+2 = Write
+
+1 = Execute
+
+0 = No permission
+
+Example: chmod 700 file → Owner (rwx), Group (none), Others (none).
+
+chown [owner]:[group] [file]: Changes ownership.
+
+Example: sudo chown root:root example.txt.
+
+Aliases and Shortcuts
+
+alias name='command': Creates a shortcut for a command.
+
+Example: alias test_file='echo "Hello, World" > test.txt'.
+
+unalias [name]: Removes an alias.
+
+Help and Documentation
+
+man [command]: Displays manual pages.
+
+help [command]: Shows built-in shell help.
+
+whatis [command]: Gives a brief description of a command.
+
+Miscellaneous
+
+clear: Clears the terminal screen.
+
+.sh files: Shell script files (e.g., script.sh).
