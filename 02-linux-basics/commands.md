@@ -4,7 +4,8 @@
 - Linux uses a hierarchical file system.
 - `~` represents the home directory.
 - `echo ~` prints the path to the home directory.
-
+- && combines commands
+  - Example: cd ~/project && ls -> goies into projects dir and lists contents  
 ---
 
 ## User and System Information
@@ -12,11 +13,25 @@
 - `id` → Displays info about the user (UID, GID, groups).  
   - UID = Unique user ID  
   - GID = Main group ID  
-  - Groups = All groups you belong to  
+  - Groups = All groups you belong to
+- groups [username]: displays groups the user is a part of  
 - `root` → Superuser account.  
 - `sudo` → Run commands with admin privileges.  
 - `history` → Shows previously entered commands.  
 - **Shortcut:** `Ctrl + R` → Search previous commands.
+
+- sudo useradd [username]: adds a new user
+  - sudo useradd -m [username]: creats home folder for the new user
+- /ect/passwd: acts as a phone book
+  - Example: sudo grep -w 'joker' /etc/passwd -> verifies if user was created
+- sudo passwd [username]: set user password
+- sudo passwd -l [username]: locks the user account
+  -  sudo passwd -u  [username]: unlocks user account
+- sudo usermod -d [new_dir] [username]: moves home dir of username to new dir
+- sudo usermod -s /bin/bash [username]: changes the user shell to bash (was sh before)
+- sudo usermod -aG [group] [username]: adds the user to the group. (-aG stands for append to group)
+- su - [username]: switch user
+- sudo userdel -r [username]: deletes user (-r means inlcuding all files/dir and mail spools)
 
 ---
 
@@ -71,7 +86,8 @@
 - `tail [file]` → Last 10 lines.  
   - `head -n [x]` or `tail -n [x]` → Show x lines.  
   - `head -c [x]` or `tail -c [x]` → Show x characters.
-
+- 'grep [word] [file]' -> searches for word in a file
+  - 'grep -w [word] [file]' -> searches for **Whole** word in file 
 ---
 
 ## File Operations
@@ -105,13 +121,20 @@
 
 ## Permissions and Ownership
 - `chmod [xyz] [file]` → Change permissions.  
-  - 4 = read  
-  - 2 = write  
-  - 1 = execute  
+  - 4 = read  (r)
+  - 2 = write  (w)
+  - 1 = execute  (x)
   - 0 = no permission  
   - `chmod 700 file` → Owner full (rwx), group & others none.  
-- `chown [owner]:[group] [file]` → Change file ownership.  
+- Symbolic notation :
+  - U = owner/user
+  - g = group
+  - o = others
+  - a = all
+  - Example: chmod u+x script.sh -> give user/owner(U) execute permissions (x). (+: adds permission) (-: removes permission)
+- chown [owner]:[group] [file]` → Change file ownership.  
   - Example: `sudo chown root:root example.txt`
+
 
 ---
 
@@ -138,7 +161,8 @@
   -  '/bin/bash' -> path to bash interpreter
 ### Script examples 
 - echo '#!/bin/bash\necho "Hello, World"' > script.sh
-  - This code creates the (script.sh) file and the "code" in it ( #!/bin/bash\necho "Hello, World") tells it to run it as a bash script and to echo hello world when run.   
+  - This code creates the (script.sh) file and the "code" in it ( #!/bin/bash \n echo "Hello, World") tells it to run it as a bash script and to echo hello world when run.
+  - use printf '#!/bin/bash\n echo "Hello, world" ' > script1.sh if the bash does not interperate (\n) as new line  
 
 ## Miscellaneous
 - `clear` → Clears the terminal.  
