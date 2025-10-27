@@ -132,6 +132,13 @@
 
 ---
 
+## Scripts
+- `.sh` files → Shell scripts (e.g., `run.sh`).
+- ' '#!' ' -> tells system this is a bash script ( e.g., '#!/bin/bash' ).
+  -  '/bin/bash' -> path to bash interpreter
+### Script examples 
+- echo '#!/bin/bash\necho "Hello, World"' > script.sh
+  - This code creates the (script.sh) file and the "code" in it ( #!/bin/bash\necho "Hello, World") tells it to run it as a bash script and to echo hello world when run.   
+
 ## Miscellaneous
 - `clear` → Clears the terminal.  
-- `.sh` files → Shell scripts (e.g., `run.sh`).
