@@ -28,8 +28,13 @@
 
 - sudo useradd [username]: adds a new user
   - sudo useradd -m [username]: creats home folder for the new user
-- /ect/passwd: acts as a phone book
+- /etc/passwd: acts as a phone book and can be used to locate if user exists
   - Example: sudo grep -w 'joker' /etc/passwd -> verifies if user was created
+- /etc/shadow: to check if user has a password ( not "THE" password)
+  - example:  sudo grep 'j.doe' /etc/shadow -> if j.doe has a password it will print something. ***if it is locked it will have a '!' in it***   
+- /etc/group: to check the usrs in a group
+
+- 
 - sudo passwd [username]: set user password
 - sudo passwd -l [username]: locks the user account
   -  sudo passwd -u  [username]: unlocks user account
@@ -149,6 +154,8 @@
   - g = group
   - o = others
   - a = all
+  - s = setgid: sets a special persmisson to mean the group/owner/other has ownership of any new files added in directory
+    - Example: sudo chmod g+s -R pheonex_project/src -> this would allow any file in the src directory to inhearit the same group ownership as the src directory. 
   - Example: chmod u+x script.sh -> give user/owner(U) execute permissions (x). (+: adds permission) (-: removes permission)
 - chown [owner]:[group] [file]` → Change file ownership.  
   - Example: `sudo chown root:root example.txt`
