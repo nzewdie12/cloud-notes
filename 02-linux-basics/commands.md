@@ -5,8 +5,12 @@
 - `~` represents the home directory.
 - `echo ~` prints the path to the home directory.
 - && combines commands
-  - Example: cd ~/project && ls -> goies into projects dir and lists contents  
+  - Example: cd ~/project && ls -> goies into projects dir and lists contents
+- '|'(pipe): the pipe allows for one operation output to be the input of another
+  -  sudo dmseg | grep -iE 'fail|error' > error_page.txt:: This command will first exucute the sudo dmseg commmand and then the output from that would be the input of the grep command
+    -  the second '|' is for a multi-word search for grep
 ---
+
 
 ## User and System Information
 - `whoami` → Displays the username of the current user.  
@@ -17,7 +21,9 @@
 - groups [username]: displays groups the user is a part of  
 - `root` → Superuser account.  
 - `sudo` → Run commands with admin privileges.  
-- `history` → Shows previously entered commands.  
+- `history` → Shows previously entered commands.
+
+
 - **Shortcut:** `Ctrl + R` → Search previous commands.
 
 - sudo useradd [username]: adds a new user
@@ -32,6 +38,13 @@
 - sudo usermod -aG [group] [username]: adds the user to the group. (-aG stands for append to group)
 - su - [username]: switch user
 - sudo userdel -r [username]: deletes user (-r means inlcuding all files/dir and mail spools)
+
+### system info
+- ' uname' -> shows kernel name
+  - uname -a -> shows kernel version + operating system
+- uptime: shows system uptime and load average
+- top: works well for system monitoring, shows live system info about CPU and memory usage
+- 'dmseg': shows system-level hardware and kernel issues
 
 ---
 
@@ -78,7 +91,8 @@
 - `echo` → Prints or redirects text.  
   - `echo "Hello"` → Prints text.  
   - `echo "Hello" > test.txt` → Writes “Hello” to a file.  
-  - `>` redirects output to a file.  
+  - `>` redirects output to a file.
+  - '>>' appends onto the file ( adds onto the file) 
 - `cat [file]` → Displays file contents.  
   - `cat -n` → With line numbers.  
 - `less [file]` → View large files page by page.  
@@ -87,7 +101,9 @@
   - `head -n [x]` or `tail -n [x]` → Show x lines.  
   - `head -c [x]` or `tail -c [x]` → Show x characters.
 - 'grep [word] [file]' -> searches for word in a file
-  - 'grep -w [word] [file]' -> searches for **Whole** word in file 
+  - 'grep -w [word] [file]' -> searches for **Whole** word in file
+  - 'grep -i: case sensitive
+  - 'grep -E [pattern1]|[pattern2]: can search for mutiple words at once 
 ---
 
 ## File Operations
@@ -107,6 +123,8 @@
   - `rm -i` → Ask before deleting.  
   - `rm -r [dir]` → Delete directory recursively.  
   - `rmdir [dir]` → Delete empty directory.
+- 'tar' -> archives muliple files into one
+  - 'tar -cvf [archived_file.gz] [file1] [file2] -> creates a tar archive with file 1 and file 2.  
 
 ---
 
