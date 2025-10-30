@@ -56,14 +56,29 @@
 - pkill [file/script]: terminates file/script
 - nohup [file]& : allows you to run a script in the background. the & at the end tells it to run in the background
   - Example: nohup your_command > custom_log.txt 2>&1 &  -> runs the script on background without interuptoin + sends standord output and error output into the custom_log file
-- 
+
+### networking.
+- ip addr: shows the status and configuration of all network interfaces. A way to check if a network interface is up/down.
+- ifconfig: shows IP addresses of the network interfaces. (eth0 uis sually the main network interface.)
+- ping: pings(sends packets and recives feedback) any ip address.
+  - ping -c (count) [ip address]: count= number of packets to be sent.
+- ss: can be used to check if any ports are listining and running
+  - ss -l: specifies that they are listening (from experementing: is neccasry if want to use the grep commmand also)   
+- ufw : aka uncoplicated firewall...: this operates a baisic firewall
+  - ufw enable/disable: enables firewall , disables firewall
+  - ufw allow/deny [port number]: allows traffic from port number, denys traffic from port number
+    - ufw allow ssh: this will act the same as sying ufw allow 22(port for ssh) 
 
 ---
 
 ## Package Management
 - `apt` → Package manager.  
   - `sudo apt install [package]` → Install software.  
-  - `sudo apt update` → Update package list.  
+  - `sudo apt update` → Update package list.
+  - 'apt show [package] -> shows details/info about the package
+    - dpkg -s : does something simmilar
+  - 'apt remove [package} -> remove package
+    - 'apt autoremove' -> removes unused packages.
 - `install` and `update` are used to manage packages.
 
 ---
