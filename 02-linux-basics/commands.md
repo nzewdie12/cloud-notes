@@ -50,6 +50,13 @@
 - uptime: shows system uptime and load average
 - top: works well for system monitoring, shows live system info about CPU and memory usage
 - 'dmseg': shows system-level hardware and kernel issues
+- 'ps aux': takes a snapshot of all processes running on the system.
+  - ps -p 1235 -o pid,ppid, cmd: helps find info(pid, ppid, cmd locatoin) based on the pid (1235) 
+- 'pgrep -f [script/file name]: finds the proccessing id (pid) of the script/file
+- pkill [file/script]: terminates file/script
+- nohup [file]& : allows you to run a script in the background. the & at the end tells it to run in the background
+  - Example: nohup your_command > custom_log.txt 2>&1 &  -> runs the script on background without interuptoin + sends standord output and error output into the custom_log file
+- 
 
 ---
 
