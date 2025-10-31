@@ -9,6 +9,7 @@
 - '|'(pipe): the pipe allows for one operation output to be the input of another
   -  sudo dmseg | grep -iE 'fail|error' > error_page.txt:: This command will first exucute the sudo dmseg commmand and then the output from that would be the input of the grep command
     -  the second '|' is for a multi-word search for grep
+-  nano -> work on scripts/file in a text editor
 ---
 
 
@@ -130,7 +131,11 @@
 - 'grep [word] [file]' -> searches for word in a file
   - 'grep -w [word] [file]' -> searches for **Whole** word in file
   - 'grep -i: case sensitive
-  - 'grep -E [pattern1]|[pattern2]: can search for mutiple words at once 
+  - 'grep -E [pattern1]|[pattern2]: can search for mutiple words at once
+
+- [VARAIABLE_NAME]=[value] -> to create a variable.
+  - DIR_VAR="/home/project/app.logs" -> paths require "" 
+- read [input_name] -> used to capture user input in terminal
 ---
 
 ## File Operations
@@ -155,6 +160,8 @@
     - 'tar -czvf [archived_file.gz] -T [filename_with list] -> can create a tar archive with files/dir found in a file with a list of the dir/file names
   - 'tar -tvf [archivved_file.gz] -> to read contents of file without extractign it
   - tar -xf [archive_file.gz] [backup_file_path] -> extracts and puts back the backup file from the archive file.
+ 
+  - 
  
   - ***crontab ??????***
 
@@ -184,6 +191,7 @@
   - s = setgid: sets a special persmisson to mean the group/owner/other has ownership of any new files added in directory
     - Example: sudo chmod g+s -R pheonex_project/src -> this would allow any file in the src directory to inhearit the same group ownership as the src directory. 
   - Example: chmod u+x script.sh -> give user/owner(U) execute permissions (x). (+: adds permission) (-: removes permission)
+    - chmod +/- [permission]: just use the permission without the user/group to apply to all.
 - chown [owner]:[group] [file]` → Change file ownership.  
   - Example: `sudo chown root:root example.txt`
 
@@ -211,9 +219,11 @@
 - `.sh` files → Shell scripts (e.g., `run.sh`).
 - ' '#!' ' -> tells system this is a bash script ( e.g., '#!/bin/bash' ).
   -  '/bin/bash' -> path to bash interpreter
+-  ./[script_name] -> to run script
 ### Script examples 
 - echo '#!/bin/bash\necho "Hello, World"' > script.sh
   - This code creates the (script.sh) file and the "code" in it ( #!/bin/bash \n echo "Hello, World") tells it to run it as a bash script and to echo hello world when run.
+    - echo '#!/bin/bash' -> mush be in single quotes 
   - use printf '#!/bin/bash\n echo "Hello, world" ' > script1.sh if the bash does not interperate (\n) as new line  
 
 ## Miscellaneous
