@@ -151,7 +151,12 @@
   - `rm -r [dir]` → Delete directory recursively.  
   - `rmdir [dir]` → Delete empty directory.
 - 'tar' -> archives muliple files into one
-  - 'tar -cvf [archived_file.gz] [file1] [file2] -> creates a tar archive with file 1 and file 2.  
+  - 'tar -cvf [archived_file.gz] [file1] [file2] -> creates a tar archive with file 1 and file 2.
+    - 'tar -czvf [archived_file.gz] -T [filename_with list] -> can create a tar archive with files/dir found in a file with a list of the dir/file names
+  - 'tar -tvf [archivved_file.gz] -> to read contents of file without extractign it
+  - tar -xf [archive_file.gz] [backup_file_path] -> extracts and puts back the backup file from the archive file.
+ 
+  - ***crontab ??????***
 
 ---
 
