@@ -10,6 +10,7 @@
   -  sudo dmseg | grep -iE 'fail|error' > error_page.txt:: This command will first exucute the sudo dmseg commmand and then the output from that would be the input of the grep command
     -  the second '|' is for a multi-word search for grep
 -  nano -> work on scripts/file in a text editor
+-  tree [dir] -> shows a nested directory structure
 ---
 
 
@@ -48,6 +49,10 @@
 ### system info
 - ' uname' -> shows kernel name
   - uname -a -> shows kernel version + operating system
+- date -> current date and time
+- cal -> calendar
+- /etc -> system configureation files
+- /bin -> holds essential command programs 
 - uptime: shows system uptime and load average
 - top: works well for system monitoring, shows live system info about CPU and memory usage
 - 'dmseg': shows system-level hardware and kernel issues
@@ -88,7 +93,8 @@
 - `pwd` → Prints working directory.  
 - `cd [directory]` → Change directory.  
   - `cd ~` → Home directory.  
-  - `cd ..` → Parent directory.  
+  - `cd ..` → Parent directory.
+  - 'cd -' -> go to previous directory
 - `ls` → Lists directory contents.  
   - `ls -l` → Long format (shows permissions, owner, group).  
   - `ls -a` → Includes hidden files.  
@@ -107,7 +113,9 @@
 ---
 
 ## File and Directory Creation
-- `touch [filename]` → Create an empty file.  
+- `touch [filename]` → Create an empty file.
+  - touch [filename{1..5}] -> creates 5 empty numbered files
+- 'cat << EOF > [filename] [...] -> allows you to write multiple lines into a file without using \n
 - `mkdir [directory]` → Create a new directory.  
   - `mkdir -p newdir/subdir` → Create nested directories.  
 - Files starting with `.` are hidden.  
@@ -168,8 +176,9 @@
 ---
 
 ## Searching and Comparing
-- `find [path] -name [filename]` → Find file by name.  
-  - `find [path] -type [f/d] -name [filename]` → By type (file/dir).  
+- `find [path] -name "[filename]"` → Find file by name.  
+  - `find [path] -type [f/d] -name "[filename]"` → By type (file/dir).
+  - ***Find command works for size,date modified, type...***
 - `diff [file1] [file2]` → Compare two files.  
   - Example: `1c1` → line 1 in file1 differs from line 1 in file2.  
   - `diff -r dir1 dir2` → Compare directories recursively.
@@ -227,4 +236,9 @@
   - use printf '#!/bin/bash\n echo "Hello, world" ' > script1.sh if the bash does not interperate (\n) as new line  
 
 ## Miscellaneous
+- ' expr [#] [expression] [#] -> allows you to do math operations aka quick calculater
+- 'figlet [word] -> creates ascii art from the word
+- 'apropos [common_word] -> looks through commands with discripts that contain the common_word
+  - ' apropos  password -> passwd ...
+- sort -> sorts alphabeticly  
 - `clear` → Clears the terminal.  
