@@ -11,6 +11,10 @@
     -  the second '|' is for a multi-word search for grep
 -  nano -> work on scripts/file in a text editor
 -  tree [dir] -> shows a nested directory structure
+-  '$Variable' -> tells the shell to subsititue the variable with the value
+
+- source [file] -> reads and executes the commands in the current sheell environemtn
+  - ./[file] -> creates a new shell envoironment to run it   
 ---
 
 
@@ -140,10 +144,21 @@
   - 'grep -w [word] [file]' -> searches for **Whole** word in file
   - 'grep -i: case sensitive
   - 'grep -E [pattern1]|[pattern2]: can search for mutiple words at once
+ 
+## Variables
 
-- [VARAIABLE_NAME]=[value] -> to create a variable.
-  - DIR_VAR="/home/project/app.logs" -> paths require "" 
+- [VARAIABLE_NAME]=[value] -> to create a shell variable.
+  - DIR_VAR="/home/project/app.logs" -> paths require ""
+- .zshrc file -> any variable in this file is perminent even if the terminal closes
+  - source ~/.zshrc -> ***MUST Run/execute .zshrc in order to use the variable*** 
 - read [input_name] -> used to capture user input in terminal
+- Common Environemtnal variables
+- env ->View all environemtnal variables
+  - $PATH -> -> allows you to run executable programs from anywhere in the system, aslong as they are in the PATH directory.
+    - export PATH="$PATH:$HOME/my_scripts" -> adds the my_scritps directory to PATH variable
+  - $HOME -> Home Dir
+  - $USER -> current user
+- unset [variable] -> to remove/delete a environemtn variable
 ---
 
 ## File Operations
@@ -163,11 +178,27 @@
   - `rm -i` → Ask before deleting.  
   - `rm -r [dir]` → Delete directory recursively.  
   - `rmdir [dir]` → Delete empty directory.
+ 
+    
 - 'tar' -> archives muliple files into one
   - 'tar -cvf [archived_file.gz] [file1] [file2] -> creates a tar archive with file 1 and file 2.
     - 'tar -czvf [archived_file.gz] -T [filename_with list] -> can create a tar archive with files/dir found in a file with a list of the dir/file names
-  - 'tar -tvf [archivved_file.gz] -> to read contents of file without extractign it
+    - 'z' -> compress the file into the gzip
+  - 'tar -tvf [archivved_file.gz] -> to read contents of file without extracting it
+    - 'tar -tzvf [archivved_file.gz] -> for compressed file
   - tar -xf [archive_file.gz] [backup_file_path] -> extracts and puts back the backup file from the archive file.
+    - tar -xvf [archive_file.tar] -C [new directory where archive is gonna extract] -> extract and "upload" files/dir to new dir
+  - gzip [file_to_compress] -> compress file
+  - tar options:
+    - c -> create
+      - C(uppercase) -> used to specify which file to extract into  
+    - v -> varbose : print names of files as it processes
+    - f -> specify file name
+    - z -> dealing with compressed file
+    - t -> read contents without extract
+    - x -> extract
+- zip -r [compressed_file_name] [file_to_compress] -> can compress and is compataible for allmost all operating systems
+- unzip -d [dir_to_unzip_into] [zip_file] -> unzip compressed zip file. -d means create dir_to_unzi_inot if it does not exist.  
  
   - 
  
@@ -240,5 +271,6 @@
 - 'figlet [word] -> creates ascii art from the word
 - 'apropos [common_word] -> looks through commands with discripts that contain the common_word
   - ' apropos  password -> passwd ...
-- sort -> sorts alphabeticly  
+- sort -> sorts alphabeticly
+- export [variable decloration] -> create a environmental variable (makes it avalibel to child processes)
 - `clear` → Clears the terminal.  
