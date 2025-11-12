@@ -66,6 +66,10 @@
 - pkill [file/script]: terminates file/script
 - nohup [file]& : allows you to run a script in the background. the & at the end tells it to run in the background
   - Example: nohup your_command > custom_log.txt 2>&1 &  -> runs the script on background without interuptoin + sends standord output and error output into the custom_log file
+- df -h -> to view disk space
+- du -h ~ -> to view disk usage
+  - du -sh ~ ->  to view the total size of the directory
+    - s -> summarize 
 
 ### networking.
 - ip addr: shows the status and configuration of all network interfaces. A way to check if a network interface is up/down.
