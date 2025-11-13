@@ -4,8 +4,9 @@
 - Linux uses a hierarchical file system.
 - `~` represents the home directory.
 - `echo ~` prints the path to the home directory.
-- && combines commands
-  - Example: cd ~/project && ls -> goies into projects dir and lists contents
+- && [AND] sequental commands one after the other 
+  - Example: cd ~/project && ls -> goies into projects dir and then lists contents
+- '||' [OR] : only runs second command if first command fails 
 - '|'(pipe): the pipe allows for one operation output to be the input of another
   -  sudo dmseg | grep -iE 'fail|error' > error_page.txt:: This command will first exucute the sudo dmseg commmand and then the output from that would be the input of the grep command
     -  the second '|' is for a multi-word search for grep
@@ -14,7 +15,16 @@
 -  '$Variable' -> tells the shell to subsititue the variable with the value
 
 - source [file] -> reads and executes the commands in the current sheell environemtn
-  - ./[file] -> creates a new shell envoironment to run it   
+  - ./[file] -> creates a new shell envoironment to run it
+- which [program] : checks if program is installed
+- {[command] } -> can be used to create a muli line command
+
+- sort -t: -k3 -n /etc/passwd | head -n 5
+  - '-t[field_seperatort]' -> indecates how to text in a line are seperated
+  - '-k[section]' -> which section to sort based off of
+  - -n -> sort numaricly instead of alphabeticlly
+- uniq -> removes duplicates
+  - uniq -c -> counts the number of occurences for each unique option 
 ---
 
 
@@ -67,9 +77,15 @@
 - nohup [file]& : allows you to run a script in the background. the & at the end tells it to run in the background
   - Example: nohup your_command > custom_log.txt 2>&1 &  -> runs the script on background without interuptoin + sends standord output and error output into the custom_log file
 - df -h -> to view disk space
-- du -h ~ -> to view disk usage
+  - df -h /path/file -> check how much disk space it occupies
+-  du -h ~ -> to view disk usage
+  - -h means human terms instead of a large value it would say something like 30gb  
   - du -sh ~ ->  to view the total size of the directory
-    - s -> summarize 
+    - s -> summarize
+  - du -h --max-depth=1 ~ -> to view size of each sub dir one level deeper [1 can be changed to any depth]
+  - du -sh ~/* -> to view size of non hidden file/dir
+  - du -h ~ | sort -rh | head -n 10 - > view total disk space | sorted (-r in reverse order : largest first) | then the top 10
+- sudo fdisk -l -> info on all disk devices and thier partions 
 
 ### networking.
 - ip addr: shows the status and configuration of all network interfaces. A way to check if a network interface is up/down.
@@ -87,8 +103,10 @@
 
 ## Package Management
 - `apt` → Package manager.  
-  - `sudo apt install [package]` → Install software.  
+  - `sudo apt install [package]` → Install software.
+    - sudo apt-get install ninvaders -y  -> -y means auto anser yes to any prompts during installation
   - `sudo apt update` → Update package list.
+    - 'sudo apt-get update' -> apt-get is a package handaling utility 
   - 'apt show [package] -> shows details/info about the package
     - dpkg -s : does something simmilar
   - 'apt remove [package} -> remove package
@@ -133,12 +151,14 @@
 
 ## File Content and Output
 - `echo` → Prints or redirects text.  
-  - `echo "Hello"` → Prints text.  
+  - `echo "Hello"` → Prints text.
+  - 'echo -e' -> tells to interperate "\" commands ex. \n as new line
   - `echo "Hello" > test.txt` → Writes “Hello” to a file.  
   - `>` redirects output to a file.
   - '>>' appends onto the file ( adds onto the file) 
 - `cat [file]` → Displays file contents.  
-  - `cat -n` → With line numbers.  
+  - `cat -n` → With line numbers.
+  - 'cat -a' -> shows all char even non printing ones 
 - `less [file]` → View large files page by page.  
 - `head [file]` → First 10 lines.  
 - `tail [file]` → Last 10 lines.  
@@ -148,6 +168,7 @@
   - 'grep -w [word] [file]' -> searches for **Whole** word in file
   - 'grep -i: case sensitive
   - 'grep -E [pattern1]|[pattern2]: can search for mutiple words at once
+  - 'grep "^d" : words that start with d
  
 ## Variables
 
@@ -268,7 +289,21 @@
 - echo '#!/bin/bash\necho "Hello, World"' > script.sh
   - This code creates the (script.sh) file and the "code" in it ( #!/bin/bash \n echo "Hello, World") tells it to run it as a bash script and to echo hello world when run.
     - echo '#!/bin/bash' -> mush be in single quotes 
-  - use printf '#!/bin/bash\n echo "Hello, world" ' > script1.sh if the bash does not interperate (\n) as new line  
+  - use printf '#!/bin/bash\n echo "Hello, world" ' > script1.sh if the bash does not interperate (\n) as new line
+ 
+----- 
+### File system and disk manageent
+- dd if=/dev/zero of=virtual.img bs=1M count=256 -> used to create a 256MB virtual disk
+  - dd -> utility for coppying and converting files
+  - if=/dev/zero -> input file is [input file is a file with infinate zeros]
+  - of=[new_virtual_disk_file].img -> our new virtual disk file
+  - bs=[blocksize] -> sets the block size(how much data to copy at once)
+  - count=[size] -> how many blocks to copy (total size)
+- sudo mkfs.ext4 [virtual_disk_file] -> creates a ext4 file system in the new virtual disk file and sets up the basic structre needed to store files.
+- sudo mkdir /mnt/virtualdisk -> creates a mount point (place where contents of vritual disk will appear) , window into the mounting point
+  - sudo mount -o loop virtual.img /mnt/virtualdisk -> actually mounts the virtual disk
+    - -0 loop -> tells linux that this should be treated as a real disk device
+  - sudo umount /mnt/virtualdisk -> unmounts the 
 
 ## Miscellaneous
 - ' expr [#] [expression] [#] -> allows you to do math operations aka quick calculater
@@ -277,4 +312,22 @@
   - ' apropos  password -> passwd ...
 - sort -> sorts alphabeticly
 - export [variable decloration] -> create a environmental variable (makes it avalibel to child processes)
-- `clear` → Clears the terminal.  
+- `clear` → Clears the terminal.
+- 'less' -> lets you scroll throught text
+- 'wc -l' -> count number of lines
+  - 'wc -w' -> conunt number of words  
+- cut -d: -f1,6 /etc/passwd | head -n 5
+  -  'cut' -> extract portion of lines
+  -  '-d[dilameter] -> how to break up the text
+  -  '-f1,6' -> extract first and 6th field
+-  tr -> translate : used to change words
+  - tr -d '[char_to_delete] -> deletes characters in a word
+  - tr -s '[duplicate_char] -> removes duplicate char
+  - tr '[:lower:]' '[:upper:]' -> converts all lower case to upper
+    - tr [Origainal_char] [New_char] -> replaces original char with the new char .
+- col -x -> converts tabs (^I) to spaces
+- join [file1] [file2] -> joins the files together based on the first field in each line
+- paste [file1] [file2] ... -> combines files based on lines
+  -  paste -d':' -> uses ':' as the dilamitedf between the fields rather than tab
+  -  paste -s -> displays the contents in a straight line
+ 
