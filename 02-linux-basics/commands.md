@@ -24,7 +24,10 @@
   - '-k[section]' -> which section to sort based off of
   - -n -> sort numaricly instead of alphabeticlly
 - uniq -> removes duplicates
-  - uniq -c -> counts the number of occurences for each unique option 
+  - uniq -c -> counts the number of occurences for each unique option
+- awk '{print $1}' file.txt -> prints the first field in file.txt
+
+- /dev/null -> a blank file/ black hole/ canbe used to empty files or send things here to discard
 ---
 
 
@@ -155,7 +158,9 @@
   - 'echo -e' -> tells to interperate "\" commands ex. \n as new line
   - `echo "Hello" > test.txt` → Writes “Hello” to a file.  
   - `>` redirects output to a file.
-  - '>>' appends onto the file ( adds onto the file) 
+  - '>>' appends onto the file ( adds onto the file)
+  - '2>' redirect error
+  - '2>&1' or '&>' redirect standerd output and error to the same place
 - `cat [file]` → Displays file contents.  
   - `cat -n` → With line numbers.
   - 'cat -a' -> shows all char even non printing ones 
