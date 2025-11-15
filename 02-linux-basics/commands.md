@@ -28,6 +28,11 @@
 - awk '{print $1}' file.txt -> prints the first field in file.txt
 
 - /dev/null -> a blank file/ black hole/ canbe used to empty files or send things here to discard
+- '/': dilemetero used to seprate commands
+- '\': used for interprattoin
+  - \i: insert
+  - \a: append
+  - \n: newline 
 ---
 
 
@@ -114,8 +119,9 @@
     - dpkg -s : does something simmilar
   - 'apt remove [package} -> remove package
     - 'apt autoremove' -> removes unused packages.
+    - apt purge -> removes configuration file and all traces of the packages
 - `install` and `update` are used to manage packages.
-
+- 'apt-cache search [package_name]-> to find packgage 
 ---
 
 ## File and Directory Navigation
@@ -173,7 +179,32 @@
   - 'grep -w [word] [file]' -> searches for **Whole** word in file
   - 'grep -i: case sensitive
   - 'grep -E [pattern1]|[pattern2]: can search for mutiple words at once
-  - 'grep "^d" : words that start with d
+  - 'grep "^d": words that start d
+  - Regex
+    - ^ : starts with
+    - [0-9]: number 
+  - grep -n: line numebers
+  - grep -C [n]: shows the line above and below by [n]
+  - grep -v: exclude instead of include
+- sed: basically a find a repalace 
+  - sed 's/[pattern]/[replacement]/[flags]' filename
+  - '/' can be replaced with '#' if '/' is used as the pattern. ex. if working with paths.
+    - '|' also works 
+  - '$': replresents last line
+    - pattern: what to search for
+    - replacement: what to replace it with
+    - flag(optional): either g (global) or i (case-insensitive)
+  - sed -i: replaces the word in the file permanently, not just prints an updated form.
+  - sed '[line_number]d': deletes that line
+  - sed '[line_number]i\[pattern]: inserts the pattern before the line. ex. 1i means push every other line down and put this pattern at line 1
+  - sed '[line_number]a\: append command
+  - sed -e [sed command] -e [sed_command]: -e can be uesd to combine muliple sed commands
+- awk:
+  - awk '{print $1, $2}' awk_test.txt : prints the first and second feild in each line usualy sperated by white spaces
+  - awk '$2 > 28 {print $1 " is over 28"}' awk_test.txt: prints only if the valuse in second filed is grater than 28
+  - awk 'NR > 1 {sum += $2} END {print "Average age:", sum/(NR-1)}' awk_test.txt:
+    - NR: stands for current line(current record)
+    - END: anything after end block is executed after all lines have been procesed
  
 ## Variables
 
@@ -240,6 +271,7 @@
 - `find [path] -name "[filename]"` → Find file by name.  
   - `find [path] -type [f/d] -name "[filename]"` → By type (file/dir).
   - ***Find command works for size,date modified, type...***
+  - locate [file] : works similarely 
 - `diff [file1] [file2]` → Compare two files.  
   - Example: `1c1` → line 1 in file1 differs from line 1 in file2.  
   - `diff -r dir1 dir2` → Compare directories recursively.
@@ -308,7 +340,12 @@
 - sudo mkdir /mnt/virtualdisk -> creates a mount point (place where contents of vritual disk will appear) , window into the mounting point
   - sudo mount -o loop virtual.img /mnt/virtualdisk -> actually mounts the virtual disk
     - -0 loop -> tells linux that this should be treated as a real disk device
-  - sudo umount /mnt/virtualdisk -> unmounts the 
+  - sudo umount /mnt/virtualdisk -> unmounts the
+ -------
+### Math
+- bc: can be used as a calculater. you can define variable and do operations 
+- echo "expression" | bc: bc is used to calculate. ex expressions should be like " 20 + 5"
+- echo "scale=2; 5 / 2" | bc: scale is used to define to what decimile point to be exact to. (2 in this case). ex answer was 2.50 
 
 ## Miscellaneous
 - ' expr [#] [expression] [#] -> allows you to do math operations aka quick calculater
@@ -335,4 +372,6 @@
 - paste [file1] [file2] ... -> combines files based on lines
   -  paste -d':' -> uses ':' as the dilamitedf between the fields rather than tab
   -  paste -s -> displays the contents in a straight line
+-  column -t -s ':' ~/project/powers_list.txt -> -t means make it into a table, using  ':' as the delimiter.
+-  ln (-s: optional to make a symblic link) [original_file/dir] [link_file/dir]: this creates a hard/symbolic link. basicly points to the data in the origanal data. 
  
