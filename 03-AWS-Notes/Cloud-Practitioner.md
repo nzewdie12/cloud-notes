@@ -19,5 +19,12 @@
 ## EC2 : Virtual servers
 - Can be run in multiple availability zones to make it more resilient
 - Can attach an EBS( Elastic Block Storage):
-  - Acting as a high-performance, persistent hard drive for an EC2 instance. Used for databases, boot volumes, and file systems. 
+  - Acting as a high-performance, persistent hard drive for an EC2 instance. Used for databases, boot volumes, and file systems.
+- An EC2 instance can be accessed in 3 different ways (ssh requires key pairs)
+## DynamoDB : Database
+- Key-value and document databases
+- NoSQL(Non relational database)
+  - flexible scheme and can be changed easily
+  - no need for column/row tables
+- prefomaice at a scale
   
